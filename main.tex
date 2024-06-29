@@ -1,0 +1,208 @@
+\documentclass[10pt,a4paper,sans]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{ragged2e}
+\usepackage[scale=0.915]{geometry}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{hyperref} 
+\usepackage{fontawesome5} 
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{tikz}
+\usepackage[normalem]{ulem}
+
+\renewcommand{\familydefault}{\sfdefault} % Set default font family to sans-serif
+\usepackage[T1]{fontenc} % Use T1 encoding for better font rendering
+
+% Color -------------------------------
+\definecolor{hlColor}{HTML}{000000} % 
+\definecolor{prTColor}{HTML}{000000} % 
+\definecolor{pagecolor}{HTML}{ffffff} % 
+\definecolor{textColor}{HTML}{000000} % 
+\definecolor{linkColor}{HTML}{018ed7} % 
+% Color -- Dark mode
+% \definecolor{hlColor}{HTML}{4893b3} % 
+% \definecolor{prTColor}{HTML}{fefefe} % 
+% \definecolor{pagecolor}{HTML}{37363b} % 
+% \definecolor{textColor}{HTML}{dbdbdc} % 
+% \definecolor{linkColor}{HTML}{98d2bf} % 
+
+% Icons --------------------------------
+\newcommand{\linkedinIcon}{%
+  \tikz[baseline=-0.5ex]{
+    \node[anchor=south west,inner sep=0] (image) at (0,-3.5pt) {\includegraphics[width=9pt]{icons/linkedin.png}};
+  }
+}
+\newcommand{\phoneIcon}{%
+  \tikz[baseline=-0.5ex]{
+    \node[anchor=south west,inner sep=0] (image) at (0,-4pt) {\includegraphics[width=10pt]{icons/mobile.png}};
+  }
+}
+\newcommand{\gmailIcon}{%
+  \tikz[baseline=-0.5ex]{
+    \node[anchor=south west,inner sep=0] (image) at (0,-2.5pt) {\includegraphics[width=9pt]{icons/gmail.png}};
+  }
+}
+\newcommand{\githubIcon}{%
+  \tikz[baseline=-0.5ex]{
+    \node[anchor=south west,inner sep=0] (image) at (0,-4pt) {\includegraphics[width=10pt]{icons/github-3.png}};
+  }
+}
+\newcommand{\bachkhoa}{%
+  \tikz[baseline=-0.5ex]{
+    \node[anchor=south west,inner sep=0] (image) at (0,-6pt) {\includegraphics[width=16pt]{icons/bk.png}};
+  }
+}
+
+% Company Logo --------------------------------
+\newcommand{\skymavis}{%
+  \href{https://app.roninchain.com/}{%
+    \tikz[baseline=-0.5ex]{%
+      \node[anchor=south west, inner sep=0] (image) at (0,-8pt) {\includegraphics[width=40pt]{icons/skymavis.png}};%
+    }%
+  }%
+}
+\newcommand{\fossil}{%
+    \href{https://apps.apple.com/us/app/fossil-smartwatches/id1027370544}{%
+    \tikz[baseline=-0.5ex]{%
+      \node[anchor=south west, inner sep=0] (image) at (0,-8pt) {\includegraphics[width=44pt]{icons/fossil.png}};%
+    }%
+  }%
+}
+\newcommand{\kms}{%
+    \href{https://kms-technology.com/}{%
+    \tikz[baseline=-0.5ex]{%
+      \node[anchor=south west, inner sep=0] (image) at (0,-6pt) {\includegraphics[width=48pt]{icons/kms.png}};%
+    }%
+  }%
+}
+\newcommand{\fpt}{%
+    \href{https://fptsoftware.com/}{%
+    \tikz[baseline=-0.5ex]{%
+      \node[anchor=south west, inner sep=0] (image) at (0,-4pt) {\includegraphics[width=48pt]{icons/fpt.png}};%
+    }%
+  }%
+}
+% Link --------------------------------
+\hypersetup{
+    colorlinks=true,    % false: boxed links; true: colored links
+    urlcolor={linkColor}      % color of external links
+}
+
+% Section --------------------------------
+\newlength{\tempdima}  % Declare a new length
+\newcommand{\customsection}[1]{%
+    \vspace{-8pt}
+    \noindent
+    \settowidth{\tempdima}{#1}%
+    \section{\color{hlColor}{#1} \hspace{-2pt}\makebox[0pt][l]{\normalcolor\rule[0ex]{\dimexpr\linewidth-1.18\tempdima-8pt}{0.3pt}}}
+    \par
+}
+\setcounter{secnumdepth}{0}
+\titleformat{\section}
+  {\normalfont\fontsize{11pt}{11pt}\selectfont\bfseries} % format of the section title
+  {\thesection} % label
+  {0} % separation between label and title body
+  {} % before-code
+\titlespacing*{\section}{0pt}{*2}{*1}
+
+% Subsection --------------------------------
+\titleformat{\subsection}
+  {\normalfont\fontsize{10pt}{10pt}\selectfont\bfseries} % Set the desired font size and formatting
+  {\thesubsection}{1em}{}
+\titlespacing*{\subsection}{6pt}{*1}{*1}
+% Experience --------------------------------
+\newcommand{\exptitle}[4]{%
+    \subsection*{\makebox[120pt][l]{#1} \hfill #2 \hfill \fontsize{9pt}{9pt}\selectfont \textit{\textmd{#3}} \hspace{4pt} \textbf{#4}}%
+}
+
+% Common --------------------------------
+\newcommand{\lightitalic}[1]{{\fontseries{l}\selectfont\itshape #1}}
+\newlist{myitemize}{itemize}{1}
+\setlist[myitemize,1]{
+    label=\textcolor{hlColor}{\scalebox{0.8}{$\bullet$}},
+    leftmargin=*,
+    itemsep=0pt
+}
+
+% -- Layout -- %
+\pagestyle{empty} 
+\pagecolor{pagecolor}
+\color{textColor} 
+\linespread{1}
+
+%Document
+\begin{document}
+\vspace*{-16pt}
+\begin{center}
+    \textcolor{prTColor}{\LARGE{\fontfamily{qtm}\selectfont{VU LE (JACOB)}}}
+\end{center}
+% \vspace*{-14pt}
+% \begin{center}
+%     \textbf{Software Engineer}
+% \end{center}
+% \vspace*{-6mm}
+\vspace*{-12pt}
+\begin{center}
+    \href{https://www.linkedin.com/in/coby-vu-le/}{\linkedinIcon {\uline{LinkedIn}}} \vline{} \enspace
+    \phoneIcon +84 787720122 \enspace \vline{} \enspace
+    \gmailIcon levu05@gmail.com \enspace \vline{} \enspace
+    \href{https://github.com/coby-pickledonion}{\githubIcon {\uline{GitHub}}}
+\end{center}
+\customsection{Skills}
+{\begin{myitemize}
+    \item Javascript \vline{} Typescript \vline{} ES6 \vline{} HTML \vline{} CSS  \vline{} SCSS \vline{} NodeJS \vline{} jQuery \vline{} Jest \vline{} ReactJS \vline{} Redux \vline{} NextJS 
+    \item Tauri \vline{} Microservices \vline{} Micro-frontend \vline{} Jira \vline{} Git \vline{} Scrum \vline{} English \vline{} Vietnamese
+\end{myitemize}}
+\customsection{Experience}
+
+\exptitle{Front-end Engineer}{\skymavis}{HCMC, VN}{7/2022 - 1/2024}
+{\begin{myitemize}
+    \item Developed \href{https://hub.skymavis.com/}{Mavis Hub 2.0}, a game launcher enabling users to view, download, and play web3 games.
+    \item Utilized Tauri, Next.js, and ReactJS to replace the previous version, delivering an enhanced UX/UI design and additional features.
+    \item Improved the code structure and established coding conventions to support project scalability and team expansion.
+    \item Managed bug fixes and maintenance tasks for the original version of Mavis Hub.
+    \item Contributed to App.axie, a blockchain marketplace for Axie Infinity items, by developing a micro front-end unit for the game section.
+    \item Developed a bridge for asset transfers between Ethereum and Ronin Chain.
+    \item Collaborated with cross-functional teams to balance workloads
+\end{myitemize}}
+\vspace{2pt}
+\exptitle{Front-end Developer, Team leader}{\fossil}{HCMC, VN}{7/2020 - 6/2022}
+{\begin{myitemize}
+    \item Implemented the front-end side for various microservices, ensuring seamless integration and performance across the platform.
+    \item Developed multi-tenant web views for Tenant Smart Watch Apps (Fossil, Skagen, Citizen) with code structures and conventions for scalability.
+    \item Collaborated directly with designers, BAs/POs, and clients to align on project requirements and deliverables, enhancing communication and project outcomes.
+    \item Managed a sub-team of 3 members and 2 interns, providing mentorship, designing the team's roadmap, and planning work streams.
+    \item Developed the Watch Face Gallery for the Fossil App, enabling users to browse, download, and apply watch faces, enhancing user engagement.
+    \item Created the Brand Portal, an internal website for managing content/resources (watch faces, banners, info cards) for brands like Fossil, Skagen, and Citizen.
+\end{myitemize}}
+\exptitle{Front-end Developer}{\kms}{HCMC, VN}{5/2017 - 3/2020}
+{\begin{myitemize}
+    \item Developed and maintained front-end features for Shout For Good using HTML, JavaScript, ReactJS, and SCSS, ensuring responsive and user-friendly UI for a charity website connecting organizations and donors.
+    \item Transitioned to full-stack development for the last 4 months, implementing back-end tasks with Ruby on Rails and managing databases (add/remove/edit records, joint tables, data returns).
+    \item Collaborated with BAs and clients to clarify ticket acceptance criteria, analyze requirements, and identify potential issues before sprint planning, ensuring clear understanding and effective solutions.
+    \item Proposed ideas to clients, gathered feedback, and refined solutions; conducted early demos during implementation to ensure alignment and progress.
+    \item Led sprint demos, presenting to clients and receiving feedback for clear communication and thorough explanations.
+    \item Contributed to Revegy, a sales platform, by attending grooming and sprint planning sessions to analyze and clarify requirements and working on front-end tasks using HTML, JavaScript, EmberJS, and SCSS.
+
+\end{myitemize}}
+\exptitle{Software Engineer, Intern}{\fpt}{HCMC, VN}{7/2016 - 9/2016}
+\begin{myitemize}
+    \item Worked in a team of interns developing a mock UserManagement System in C\#/.Net environment.   
+\end{myitemize}
+\customsection{Education}
+\subsection*{\makebox[100pt][l]{Bachelor of Science} \hfill \bachkhoa \hspace{0pt} HCMC University of Technology, VNUHCM \hfill \fontsize{9pt}{9pt}\selectfont \textit{\textmd{HCM, VN}} \hspace{4pt} \textbf{7/2012 - 5/2017}}%
+\begin{myitemize}
+\item \textit{Major in} Computer Science and Engineering
+\end{myitemize}
+\customsection{Others}
+\begin{myitemize}
+\item \textbf{KMS NEXT Training Program \hfill \fontsize{9pt}{9pt}\selectfont{7/2017 - 9/2017}}
+\vspace{4pt}
+\item \textbf{Test of English for International Communication - TOEIC Certificate}: 745/990 \hfill \textbf{\fontsize{9pt}{9pt}\selectfont{8/2016}}
+\end{myitemize}
+\end{document}

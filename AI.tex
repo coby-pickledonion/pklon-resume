@@ -1,0 +1,27 @@
+\documentclass[10pt,a4paper,sans]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[scale=0.915]{geometry}
+\usepackage{hyperref} 
+\usepackage{fontawesome5} 
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{tikz}
+
+% Define the command for the Skymavis icon with a hyperlink
+\newcommand{\skymavis}{%
+  \href{https://app.roninchain.com/}{%
+    \tikz[baseline=-0.5ex]{%
+      \node[anchor=south west, inner sep=0] (image) at (0,-24pt) {\includegraphics[width=60pt]{icons/skymavis.png}};%
+    }%
+  }%
+}
+
+\newcommand{\exptitle}[4]{%
+    \subsection*{\color{black}#1 \hfill #2 \hfill \textit{#3} \hfill #4}%
+}
+
+\begin{document}
+\exptitle{Front-end Engineer}{\skymavis}{HCMC, VN}{7/2022 - 1/2024}
+\end{document}
