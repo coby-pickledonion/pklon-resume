@@ -1,0 +1,53 @@
+name: Update README with PDF link
+
+on:
+  workflow_run:
+    workflows: ["LaTeX to PDF"]
+    types:
+      - completed
+
+jobs:
+  update-readme:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Get PDF Artifact ID
+        id: get-artifact-id
+        run: |
+          # Fetch the artifact ID for Coby-PickledOnion.pdf
+          artifact_id=$(curl -s https://api.github.com/repos/${{ github.repository }}/actions/artifacts | jq -r '.artifacts[] | select(.name == "Coby-PickledOnion.pdf") | .id')
+          echo "Artifact ID: $artifact_id"
+          echo "::set-output name=id::$artifact_id"
+
+      - name: Get PDF Artifact URL
+        id: get-artifact-url
+        run: |
+          # Construct the artifact URL using the fetched ID
+          artifact_url="https://github.com/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}/artifacts/${{ steps.get-artifact-id.outputs.id }}"
+          echo "Artifact URL: $artifact_url"
+          echo "::set-output name=url::$artifact_url"
+      - name: Update README with PDF link
+        run: |
+          # Replace the placeholder link in README.md with the fetched artifact URL
+          sed -i "s|^\[View My Resume\](.*)$|[View My Resume](${{ steps.get-artifact-url.outputs.url }})|" README.md
+        if: success()
+
+      - name: Commit Changes
+        run: |
+          # Configure Git user and commit changes to README.md
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add README.md
+          git diff --cached --exit-code || git commit -m "Update README with latest PDF link"
+        if: success()
+
+      - name: Push Changes
+        run: |
+          # Push committed changes to GitHub repository
+          git push
+        if: success()

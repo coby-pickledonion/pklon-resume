@@ -5,6 +5,8 @@ on:
     branches:
       - main  # Adjust branch name as needed
 
+env:
+  OUTPUT_FILE: Coby-PickledOnion
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,11 +22,11 @@ jobs:
 
       - name: Compile LaTeX to PDF
         run: |
-          pdflatex -interaction=nonstopmode -halt-on-error main.tex
+          pdflatex -interaction=nonstopmode -halt-on-error -jobname=${{ env.OUTPUT_FILE }} main.tex
         working-directory: ${{ github.workspace }}
 
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v2
         with:
-          name: main.pdf
-          path: main.pdf
+          name: ${{ env.OUTPUT_FILE }}.pdf
+          path: ${{ env.OUTPUT_FILE }}.pdf
