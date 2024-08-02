@@ -6,3 +6,4 @@ Despite the controversial opinion that LaTeX is outdated, I value its flexibilit
 You can download [My Resume](https://github.com/coby-pickledonion/pklon-resume/actions/runs/9748822361/artifacts/1656553775) here!
 
 Thank you for visiting!
+

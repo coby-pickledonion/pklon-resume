@@ -1,0 +1,13 @@
+main.aux
+main.fdb_latexmk
+main.fls
+main.log
+main.out
+main.synctex.gz
+sectioned.aux
+sectioned.fdb_latexmk
+sectioned.fls
+sectioned.log
+sectioned.out
+sectioned.synctex.gz
+.DS_Store
